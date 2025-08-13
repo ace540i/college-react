@@ -4,7 +4,7 @@
   "private": true,
   "description": "React web application for college portal",
   "scripts": {
-    "start": "node src/server.js",
+    "start": "serve -s build",
     "build": "react-scripts build",
     "postinstall": "npm run build",
     "test": "react-scripts test --env=jsdom",
