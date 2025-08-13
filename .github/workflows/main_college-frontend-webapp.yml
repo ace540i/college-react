@@ -62,4 +62,11 @@ jobs:
         with:
           client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_C67A39AFB9724831A07EE99189D87B79 }}
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_0425E16C292B49B8BEEF2F7A30D9911D }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_3CC8DB7C454F45C0A27A0ACA5AB4EBD
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_3CC8DB7C454F45C0A27A0ACA5AB4EBD4 }}
+
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: 'college-frontend-webapp'
+          slot-name: 'Production'
+          package: build.zip
