@@ -45,6 +45,15 @@ jobs:
         with:
           name: node-app
 
+      - name: Zip build folder
+        run: zip -r build.zip build
+
+      - name: Upload zipped artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: node-app
+          path: build.zip
+
       - name: Login to Azure
         uses: azure/login@v2
         with:
@@ -58,3 +67,4 @@ jobs:
           app-name: 'college-frontend-webapp'
           slot-name: 'Production'
           package: ./node-app
+
