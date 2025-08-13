@@ -4,8 +4,10 @@ const app = express();
 
 const PORT = process.env.PORT || 3000;
 
+// Serve static files from the React build directory
 app.use(express.static(path.join(__dirname, 'build')));
 
+// Handle client-side routing
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
@@ -13,13 +15,3 @@ app.get('*', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
-Update your `package.json` scripts:**
-
-```json
-"scripts": {
-  "start": "node server.js",
-  "build": "react-scripts build",
-  "postinstall": "npm run build",
-  "test": "react-scripts test --env=jsdom",
-  "eject": "react-scripts eject"
-}
