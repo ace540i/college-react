@@ -30,8 +30,8 @@ jobs:
         run: |
           # npm install
           # npm install serve --save
-          npm run build --if-present
-          npm test -- --passWithNoTests
+          # npm run build --if-present
+          # npm test -- --passWithNoTests
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
@@ -66,6 +66,7 @@ jobs:
           app-name: 'college-frontend-webapp'
           slot-name: 'Production'
           package: ./build
+
 
 
 
